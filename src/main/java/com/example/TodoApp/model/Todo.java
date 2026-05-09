@@ -1,9 +1,7 @@
 package com.example.TodoApp.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 public class Todo {
@@ -13,5 +11,14 @@ public class Todo {
     private Long id;
 
     private String title;
-    private boolean completed;
+
+    private String description;
+
+    @Enumerated(EnumType.STRING)
+    private TodoStatus status;
+
+    private LocalDate deadline;
+
+    @Enumerated(EnumType.STRING)
+    private TodoPriority priority;
 }
