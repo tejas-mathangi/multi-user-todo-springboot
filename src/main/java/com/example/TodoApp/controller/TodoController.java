@@ -16,13 +16,29 @@ public class TodoController {
         this.todoService = todoService;
     }
 
-    @GetMapping
+    @GetMapping()
     public List<Todo> getTodos() {
         return todoService.getAllTodos();
     }
 
-    @PostMapping
+    @GetMapping("/{id}")
+    public List<Todo> getTodoById(@RequestBody Todo todo) {
+        return todoService.getAllTodos();
+    }
+
+    @PostMapping()
     public Todo createTodo(@RequestBody Todo todo) {
         return todoService.createTodo(todo);
     }
+
+    @PutMapping("/{id}")
+    public Todo updateTodo(@RequestBody Todo todo) {
+        return todoService.updateTodo(todo);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteTodoById(@PathVariable Long id){
+        todoService.deleteTodoById(id);
+    }
+
 }
