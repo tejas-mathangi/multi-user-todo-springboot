@@ -28,4 +28,8 @@ public class Todo {
 
     @Enumerated(EnumType.STRING)
     private TodoPriority priority;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }
